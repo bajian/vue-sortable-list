@@ -27,11 +27,11 @@
      var sortObjArrByKey=function(objArr,key,isDesc){
       if (isDesc) {
         objArr.sort(function(a,b){
-          return parseFloat(a[key])<parseFloat(b[key])?1:-1
+          return parseFloat(b[key])-parseFloat(a[key])
         });
       }else{
         objArr.sort(function(a,b){
-          return parseFloat(a[key])>parseFloat(b[key])?1:-1
+          return parseFloat(a[key])-parseFloat(b[key])
         });
       }
       return objArr
