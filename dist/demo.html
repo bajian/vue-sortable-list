@@ -1,0 +1,24 @@
+<!DOCTYPE html><html><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1"><title>sortabe-list</title><script type=text/javascript>(function (doc, win) {
+    var docEl = doc.documentElement,
+    first=true,
+    lastWidth=0,
+    resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+    recalc = function () {
+      if (docEl.clientWidth-lastWidth<10&&docEl.clientWidth-lastWidth>-10) return ;
+      if (!first && lastWidth!=docEl.clientWidth) 
+        return location.reload();
+      first=false;
+      var clientWidth=lastWidth = docEl.clientWidth;
+      var clientHeight = docEl.clientHeight;
+      if (!clientWidth) return;
+              if (clientWidth>clientHeight) //pc/pad
+                clientWidth=400;
+              // if (clientWidth>640) clientWidth=640;
+              //chrome不能小于12！考虑最小320所以基准至少要大于24,1080*320/12=40
+              docEl.style.fontSize = 40 * (clientWidth / 1080) + 'px';
+            };
+
+            if (!doc.addEventListener) return;
+            // win.addEventListener(resizeEvt, recalc, false);
+            doc.addEventListener('DOMContentLoaded', recalc, false);
+          })(document, window);</script><link href=https://cdn.rawgit.com/bajian/vue-sortable-list/master/dist/static/css/app.ddf4a55636fd06bde865cd16c549a266.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=https://cdn.rawgit.com/bajian/vue-sortable-list/master/dist/static/js/manifest.20c5e78cd6d08817f9b0.js></script><script type=text/javascript src=https://cdn.rawgit.com/bajian/vue-sortable-list/master/dist/static/js/vendor.e017580e88abf6fab441.js></script><script type=text/javascript src=https://cdn.rawgit.com/bajian/vue-sortable-list/master/dist/static/js/app.5f56fb2c7123488ed00b.js></script></body></html>
